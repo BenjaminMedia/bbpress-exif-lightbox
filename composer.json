@@ -1,0 +1,36 @@
+{
+  "name": "benjaminmedia/bbpress-exif-lightbox",
+  "description": "Displays exif data within a lightbox",
+  "type": "wordpress-plugin",
+  "keywords": ["wordpress", "plugin", "bbPress", "exif", "lightbox"],
+  "homepage": "https://github.com/BenjaminMedia/bbpress-exif-lightbox",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "http://wpackagist.org"
+    }
+  ],
+  "authors": [
+    {
+      "name": "Bonnier Publications",
+      "email": "interactive@bonnier.dk",
+      "homepage": "http://bonnierpublications.com"
+    },
+    {
+      "name": "Michael Sørensen",
+      "email": "michael.sorensen@bonnier.dk"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/BenjaminMedia/bbpress-exif-lightbox/issues",
+    "source": "https://github.com/BenjaminMedia/bbpress-exif-lightbox"
+  },
+  "autoload": {
+    "psr-4": {
+      "Bonnier\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=5.6"
+  }
+}
