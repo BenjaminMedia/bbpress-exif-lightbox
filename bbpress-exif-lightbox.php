@@ -164,11 +164,7 @@ class Plugin
 
             if ($exif) {
                 $hasExif = true;
-                /*$output .= '
-    <div class="exif-data">
-    <div class="mdImg">
-    <a href="' . wp_get_attachment_url($attachment->ID) . '"><img src="' . wp_get_attachment_url($attachment->ID) . '" alt="" title="" width="124" height="124" /></a></div>
-    </div><span class="mdLabel">exif</span><span class="exif">' . $exif . '</span>';*/
+                
                 $output .= '<div class="exif-data" data-att-id="'.$attachment->ID.'" style="display: none"><span class="mdLabel">exif</span><span class="exif">' . $exif . '</span></div>';
             }
         }
