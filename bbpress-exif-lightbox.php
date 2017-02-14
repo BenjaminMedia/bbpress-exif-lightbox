@@ -94,6 +94,7 @@ class Plugin
             add_action('wp_enqueue_scripts', [$this, 'includeCss']);
             add_action('bbp_theme_after_topic_content', [$this, 'displayExifLightbox']);
             add_action('bbp_theme_after_reply_content', [$this, 'displayExifLightbox']);
+            add_filter('bbp-rii-image', [$this, 'addExifToImagesAsDataAttribute'], 10, 2);
 
             add_action('wp_footer', [$this, 'lightboxContent']);
         }
@@ -108,6 +109,12 @@ class Plugin
     public function includeCss() {
         wp_enqueue_style('photoswipe', plugins_url('photoswipe.css', __FILE__));
         wp_enqueue_style('photoswipe-default-skin', plugins_url('default-skin/default-skin.css', __FILE__));
+    }
+
+    public function addExifToImagesAsDataAttribute($image, $image_id){
+        $exifData = json_encode(wp_get_attachment_metadata($image_id));
+        $image = preg_replace('/(<a .*?)(">)/', "$1\" data-exif='$exifData' $2", $image, $image_id);
+        return $image;
     }
 
     public function displayExifLightbox() {
@@ -129,7 +136,7 @@ class Plugin
         }
 
         $output = "";
-        $exifIsEmpty = false;
+        $hasExif = false;
         // Go through every attachment and echo exif data
         foreach ($attachments as $attachment)
         {
@@ -156,6 +163,7 @@ class Plugin
             }
 
             if ($exif) {
+                $hasExif = true;
                 /*$output .= '
     <div class="exif-data">
     <div class="mdImg">
@@ -165,7 +173,7 @@ class Plugin
             }
         }
 
-        if(!$exifIsEmpty)
+        if($hasExif)
             echo $output;
     }
 
