@@ -59,7 +59,6 @@ jQuery(document).ready(function () {
             }
 
             jQuery(this).attr('data-index', itemCounter);
-            jQuery(this).attr('data-title', 'sup');
 
             items.push(item);
             itemCounter++;
@@ -70,10 +69,6 @@ jQuery(document).ready(function () {
     var items = getItems();
 
     var pswp = jQuery('.pswp')[0];
-    /*jQuery('.bbp-reply-content .lightbox').click(function(event){
-        
-        console.log(event);
-    });*/
 
     jQuery('.bbp-reply-content .lightbox, .bbp-topic-content .lightbox').click(function (event) {
         event.preventDefault();
@@ -88,8 +83,6 @@ jQuery(document).ready(function () {
         // Initialize PhotoSwipe
         var lightBox = new PhotoSwipe(pswp, PhotoSwipeUI_Default, items, options);
         lightBox.init();
-
-        //lightBox.goTo(itemCount);
 
         return false;
     });
