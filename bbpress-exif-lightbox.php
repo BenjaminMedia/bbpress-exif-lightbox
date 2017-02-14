@@ -10,7 +10,7 @@
  * License:     GPL
  */
 
-namespace bbPress\DisplayExifLightbox;
+namespace Bonnier\DisplayExifLightbox;
 
 // Do not access this file directly
 if (!defined('ABSPATH')) {
