@@ -4,13 +4,13 @@
  * Plugin Name: bbPress Exif Lightbox
  * Plugin URI: https://github.com/BenjaminMedia/bbpress-exif-lightbox
  * Description: Display exif data for the images attached in posts and comments
- * Author:      Michael Sørensen
+ * Author:      Michael Sørensen & Frederik Rabøl
  * Domain Path: /languages/
  * Version:     0.0.1
  * License:     GPL
  */
 
-namespace bbPress\DisplayExifLightbox;
+namespace Bonnier\DisplayExifLightbox;
 
 // Do not access this file directly
 if (!defined('ABSPATH')) {
@@ -164,7 +164,7 @@ class Plugin
 
             if ($exif) {
                 $hasExif = true;
-                
+
                 $output .= '<div class="exif-data" data-att-id="'.$attachment->ID.'" style="display: none"><span class="mdLabel">exif</span><span class="exif">' . $exif . '</span></div>';
             }
         }
